@@ -1,0 +1,84 @@
+.banner {
+    width: 100%;
+    height: 490px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        background: $main-color;
+        box-shadow: 0 4px 10px 0 rgba(115, 121, 140, 0.15);
+    }
+
+    &-left {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 50px;
+
+        &-title {
+            font-family: $font-family;
+            font-weight: 700;
+            font-size: 35px;
+            color: $white-color;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        &-subtitle {
+            font-family: $font-family;
+            font-weight: 400;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.75);
+            cursor: pointer;
+            margin-bottom: 180px;
+        }
+
+        &-btn {
+            border: 1.50px solid #fff;
+            border-radius: 10px;
+            padding: 16px 40px;
+            width: 180px;
+            height: 50px;
+            font-family: $font-family;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 100%;
+            text-align: center;
+            color: $white-color;
+            @include trn();
+
+            &:hover {
+                background-color: $white-color;
+                color: $main-color;
+            }
+        }
+    }
+
+
+
+    &-right {
+        width: 800px;
+        height: 490px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 0 14px 14px 0;
+        }
+    }
+}
