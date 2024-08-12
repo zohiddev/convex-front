@@ -1,5 +1,8 @@
 import React from 'react'
 import { Cart, Location, Search } from '../../assets/icons'
+import { Link } from 'react-router-dom'
+import { links } from '../../constants/router'
+
 
 function Header() {
   return (
@@ -7,12 +10,14 @@ function Header() {
       <div className='container'>
         <div className='header-row'>
           <div className='header-top'>
+            <Link to='/'>
             <div className='header-logo'>
               <img src='/images/logo.png' alt='convex logo' />
             </div>
+            </Link>
             <div className='header-call'>
               <span className='header-call__hot'>Бесплатный звонок</span>
-              <span className='header-call__num'>8 800 080 5011</span>
+              <a href='tel:8 800 080 5011' className='header-call__num'>8 800 080 5011</a>
             </div>
             <div className='header-search'>
               <Search />
@@ -33,27 +38,13 @@ function Header() {
           </div>
           <div className='header-bottom'>
             <div className='header-selectors'>
-              <select className='header-selector'>
-                <option>Продукты</option>
-              </select>
-              <select className='header-selector'>
-                <option>Еда быстрого приготовления</option>
-              </select>
-              <select className='header-selector'>
-                <option>Консервы</option>
-              </select>
-              <select className='header-selector'>
-                <option>Напитки</option>
-              </select>
-              <select className='header-selector'>
-                <option>Бытовая химия</option>
-              </select>
-              <select className='header-selector'>
-                <option>Уход за собой</option>
-              </select>
-              <select className='header-selector others'>
-                <option>Еще</option>
-              </select>
+              {
+                links.map(item => (
+                  <Link to={item.path} key={item.id} className='header-selector'>
+                    {item.title}
+                  </Link>
+                ))
+              }
             </div>
             <div className='header-card-btn'>
               <Cart />

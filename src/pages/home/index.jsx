@@ -1,12 +1,16 @@
 import React from 'react'
 import Banner from './components/Banner'
-import BannerCard from './components/BannerCard'
+import Features from './components/Features'
+import ProductsSection from '../../components/ProductsSection'
 
 function Home() {
   return (
     <div className='page home-page'>
       <Banner />
-      <BannerCard />
+      <Features />
+      <ProductsSection />
+      <ProductsSection />
+      <ProductsSection />
     </div>
   )
 }

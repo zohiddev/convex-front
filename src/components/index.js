@@ -1,6 +1,6 @@
 import Footer from './footer'
 import Header from './header'
 import Main from './main'
-import ProducCard from './ProducCard'
+import ProductCard from './ProductCard'
 
-export { Header, Footer, Main, ProducCard }
+export { Header, Footer, Main, ProductCard }
