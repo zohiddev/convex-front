@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Cart, Location, Search } from '../../assets/icons'
+import Axios from '../../api'
+import { urls } from '../../constants/urls'
 
 function Header() {
+  const [categories, setCategories] = useState([])
+
+  async function getCategories() {
+    Axios.get(urls.category.get)
+      .then(function (res) {
+        setCategories(res.data)
+      })
+      .catch(function (err) {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    getCategories()
+  }, [])
+
+  console.log(categories)
+
   return (
     <header className='header'>
       <div className='container'>
@@ -33,27 +53,11 @@ function Header() {
           </div>
           <div className='header-bottom'>
             <div className='header-selectors'>
-              <select className='header-selector'>
-                <option>Продукты</option>
-              </select>
-              <select className='header-selector'>
-                <option>Еда быстрого приготовления</option>
-              </select>
-              <select className='header-selector'>
-                <option>Консервы</option>
-              </select>
-              <select className='header-selector'>
-                <option>Напитки</option>
-              </select>
-              <select className='header-selector'>
-                <option>Бытовая химия</option>
-              </select>
-              <select className='header-selector'>
-                <option>Уход за собой</option>
-              </select>
-              <select className='header-selector others'>
-                <option>Еще</option>
-              </select>
+              {categories.map((item) => (
+                <select key={item.id} className='header-selector'>
+                  <option>{item.name}</option>
+                </select>
+              ))}
             </div>
             <div className='header-card-btn'>
               <Cart />
