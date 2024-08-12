@@ -36,6 +36,7 @@ function CategoryPage() {
       </div>
   </div>
 </section>
-)}
+)
+}
 
 export default CategoryPage
