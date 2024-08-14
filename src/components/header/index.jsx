@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Cart, Location, Search } from '../../assets/icons'
 import { Link } from 'react-router-dom'
-import { links } from '../../constants/router'
-
+import Axios from '../../api'
+import { urls } from '../../constants/urls'
 
 function Header() {
+  const [categories, setCategories] = useState([])
+
+  async function getCategories() {
+    Axios.get(urls.category.get)
+      .then(function (res) {
+        setCategories(res.data)
+      })
+      .catch(function (err) {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    getCategories()
+  }, [])
+
+  console.log(categories)
+
   return (
     <header className='header'>
       <div className='container'>
@@ -38,13 +56,12 @@ function Header() {
           </div>
           <div className='header-bottom'>
             <div className='header-selectors'>
-              {
-                links.map(item => (
-                  <Link to={item.path} key={item.id} className='header-selector'>
+              {categories.map((item) => (
+                 <Link to='/' key={item.id} className='header-selector'>
                     {item.title}
                   </Link>
-                ))
-              }
+
+              ))}
             </div>
             <div className='header-card-btn'>
               <Cart />
