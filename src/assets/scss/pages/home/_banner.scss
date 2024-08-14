@@ -4,30 +4,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     &-row {
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         border-radius: 14px;
         background: $main-color;
         box-shadow: 0 4px 10px 0 rgba(115, 121, 140, 0.15);
     }
 
     &-left {
-        width: 50%;
+        width: 372px;
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0 50px;
+        padding: 0 20px;
 
         &-title {
             font-family: $font-family;
             font-weight: 700;
-            font-size: 35px;
+            font-size: 32px;
             color: $white-color;
             line-height: 1.2;
             margin-bottom: 20px;
@@ -61,24 +62,88 @@
                 background-color: $white-color;
                 color: $main-color;
             }
+
+            &:active {
+                background: transparent;
+                color: $white-color;
+            }
         }
     }
 
-
-
     &-right {
         width: 800px;
-        height: 490px;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        img {
+        &-image {
             width: 100%;
             height: 100%;
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 0 14px 14px 0;
+            cursor: pointer;
+        }
+    }
+
+    &-prev {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: $white-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-box-shadow: 5px 5px 45px -11px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 5px 5px 45px -11px rgba(0, 0, 0, 1);
+        box-shadow: 5px 5px 45px -11px rgba(0, 0, 0, 1);
+        @include trn();
+
+        &:hover {
+            background: $main-color;
+
+            .banner-prev-icon path {
+                fill: $white-color;
+            }
+        }
+
+        &:active {
+            background: #cdcdcd;
+        }
+    }
+
+    &-next {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: $white-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-box-shadow: 5px 5px 45px -11px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 5px 5px 45px -11px rgba(0, 0, 0, 1);
+        box-shadow: 5px 5px 45px -11px rgba(0, 0, 0, 1);
+        @include trn();
+
+        &:hover {
+            background: $main-color;
+
+            .banner-next-icon path {
+                fill: $white-color;
+            }
+        }
+
+        &:active {
+            background: #cdcdcd;
         }
     }
 }

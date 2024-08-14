@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Cart, Location, Search } from '../../assets/icons'
+import { Link } from 'react-router-dom'
 import Axios from '../../api'
 import { urls } from '../../constants/urls'
 
@@ -27,12 +28,14 @@ function Header() {
       <div className='container'>
         <div className='header-row'>
           <div className='header-top'>
+            <Link to='/'>
             <div className='header-logo'>
               <img src='/images/logo.png' alt='convex logo' />
             </div>
+            </Link>
             <div className='header-call'>
               <span className='header-call__hot'>Бесплатный звонок</span>
-              <span className='header-call__num'>8 800 080 5011</span>
+              <a href='tel:8 800 080 5011' className='header-call__num'>8 800 080 5011</a>
             </div>
             <div className='header-search'>
               <Search />
@@ -54,9 +57,10 @@ function Header() {
           <div className='header-bottom'>
             <div className='header-selectors'>
               {categories.map((item) => (
-                <select key={item.id} className='header-selector'>
-                  <option>{item.name}</option>
-                </select>
+                 <Link to='/' key={item.id} className='header-selector'>
+                    {item.title}
+                  </Link>
+
               ))}
             </div>
             <div className='header-card-btn'>
